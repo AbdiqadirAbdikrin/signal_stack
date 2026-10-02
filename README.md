@@ -1,6 +1,6 @@
 # Signal Stack
 
-Signal Stack is a production-ready technology publication built with Next.js, TypeScript, Tailwind, and MDX. It is designed for AI, cloud, DevOps, and software engineering coverage with SEO, structured data, and content-first architecture.
+Signal Stack is a production-ready technology publication built with Next.js, TypeScript, Tailwind, and MDX. It is designed for AI, cloud, DevOps, and software engineering coverage with SEO, structured data, and content-first architecture..
 
 ## Install
 
