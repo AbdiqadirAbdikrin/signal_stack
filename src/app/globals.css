@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --page-surface: #ffffff;
+  --page-surface-alt: #f8fafc;
+  --page-border: #e2e8f0;
+  --text: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --heading: #020617;
+  --article-body: #0f172a;
+  --link: #0284c7;
+  --link-hover: #0369a1;
+  --accent: #0ea5e9;
+  --accent-soft: rgba(14, 165, 233, 0.12);
+  --code-surface: #0f172a;
+  --code-text: #e2e8f0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #020817;
+    --foreground: #f8fafc;
+    --page-surface: #0b1220;
+    --page-surface-alt: #0f172a;
+    --page-border: #1e293b;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --heading: #f8fafc;
+    --article-body: #e2e8f0;
+    --link: #7dd3fc;
+    --link-hover: #bae6fd;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.15);
+    --code-surface: #020817;
+    --code-text: #e2e8f0;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.article-shell {
+  background: var(--background);
+  color: var(--text);
+}
+
+.article-prose {
+  width: min(100%, 760px);
+  color: var(--article-body);
+}
+
+.article-prose>*+* {
+  margin-top: 1.75rem;
+}
+
+.article-prose p,
+.article-prose li,
+.article-prose blockquote,
+.article-prose table,
+.article-prose code,
+.article-prose a {
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.article-prose h1,
+.article-prose h2,
+.article-prose h3,
+.article-prose h4 {
+  color: var(--heading);
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.article-prose h1 {
+  font-size: clamp(2.5rem, 2.8vw + 1.2rem, 3rem);
+  line-height: 1.1;
+}
+
+.article-prose h2 {
+  font-size: clamp(1.9rem, 1.8vw + 1.05rem, 2.2rem);
+  line-height: 1.2;
+  margin-top: 3rem;
+}
+
+.article-prose h3 {
+  font-size: clamp(1.45rem, 1.5vw + 0.8rem, 1.7rem);
+  line-height: 1.3;
+  margin-top: 2.5rem;
+}
+
+.article-prose h4 {
+  font-size: clamp(1.2rem, 1vw + 0.75rem, 1.45rem);
+  line-height: 1.4;
+  margin-top: 2rem;
+}
+
+.article-prose p {
+  color: var(--article-body);
+  margin: 0;
+}
+
+.article-prose a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 0.2em;
+  transition: color 150ms ease;
+}
+
+.article-prose a:hover {
+  color: var(--link-hover);
+}
+
+.article-prose ul,
+.article-prose ol {
+  padding-left: 1.4rem;
+  margin: 1.5rem 0;
+  color: var(--article-body);
+}
+
+.article-prose ul li,
+.article-prose ol li {
+  margin: 0.65rem 0;
+  padding-left: 0.15rem;
+}
+
+.article-prose blockquote {
+  margin: 2rem 0;
+  padding: 1rem 1.25rem 1rem 1.1rem;
+  border-left: 4px solid var(--accent);
+  border-radius: 0 0.9rem 0.9rem 0;
+  background: var(--page-surface-alt);
+  color: var(--text-secondary);
+}
+
+.article-prose hr {
+  border-color: var(--page-border);
+  margin: 2.5rem 0;
+}
+
+.article-prose pre {
+  margin-top: 1.5rem;
+}
+
+.article-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--article-body);
+}
+
+.article-prose th,
+.article-prose td {
+  border: 1px solid var(--page-border);
+  padding: 0.8rem 0.9rem;
+  text-align: left;
+}
+
+.article-prose th {
+  background: var(--page-surface-alt);
+  color: var(--heading);
+}
+
+.article-prose code {
+  font-family: var(--font-geist-mono), monospace;
+}
+
+.article-prose :where(pre code) {
+  display: inline-block;
+  min-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .article-prose {
+    width: 100%;
+  }
+
+  .article-prose h1 {
+    font-size: clamp(2.2rem, 9vw, 2.8rem);
+  }
+
+  .article-prose h2 {
+    font-size: clamp(1.7rem, 7vw, 2.1rem);
+  }
+
+  .article-prose h3 {
+    font-size: clamp(1.35rem, 6vw, 1.6rem);
+  }
+
+  .article-prose p,
+  .article-prose li,
+  .article-prose blockquote,
+  .article-prose a,
+  .article-prose table {
+    font-size: 1rem;
+  }
+}
