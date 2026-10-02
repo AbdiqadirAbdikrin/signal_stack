@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from '@vercel/analytics/next';
 
 import { PublicLayout } from "@/components/PublicLayout";
 import { getArticleSession } from "@/lib/article-auth";
@@ -47,6 +48,7 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
           Skip to content
         </a>
         <PublicLayout session={session}>{children}</PublicLayout>
+        <Analytics />
       </body>
     </html>
   );
